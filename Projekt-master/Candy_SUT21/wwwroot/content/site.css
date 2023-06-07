@@ -1,0 +1,403 @@
+﻿body {
+    padding-top: 125px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-image: url('/images/CandyShopBackGround.png');
+    background-size: cover;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    max-width: 100vw;
+}
+
+
+.slide-image {
+    width:100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 150px;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+   /* width: 100%;*/
+   overflow:hidden;
+}
+
+.candyCard-image {
+    width: 100%;
+    height: 16.8rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.3rem;
+}
+
+.addToCart {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333;
+    }
+
+footer {
+    margin: 50px 0;
+}
+
+.navbar {
+    background-image: none;
+}
+
+/*Navbar head color*/
+.navbar-inverse {
+    background-color: #5c85b3;
+    border-color: #B3F1F5;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+    font-size: 1.2em;
+
+}
+
+.navbar .nav > li > a {
+    font-size: 1.2em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.carousel .item {
+    height: 400px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-color: #2F445C !important;
+    border-color: #2F445C !important;
+}
+
+.btn {
+    background-color: #5c85b3 !important;
+}
+
+.chartContainer{
+    background-color:white;
+    padding-top:10px;
+}
+.chartWidget {
+    background-color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+
+.discount-circle {
+    position: absolute;
+    background-color: red;
+    padding: 1rem;
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+}
+
+.discount-percent {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+/*.img {
+    float: left;
+    max-width:30%;
+}*/
+/*  Discont Management View Start*/
+.discount-management-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5rem;
+    align-items: flex-end;
+}
+
+.discount-management-header a{
+    height: 4rem;
+    width: 4rem;
+    display:flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.discount-edit-container {
+    display: grid;
+    justify-content:center;
+}
+.discount-edit-container .discount-edit-header {
+    grid-row: 1;
+    grid-column: 1/3;
+    margin-left: 5rem;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
+    background-color: red !important;
+    border-color: red !important;
+}
+/*  Discont Management View End*/
+
+
+/*  Discont AddOrEdit View Start*/
+
+.discount-edit-form{
+    grid-row: 2;
+    grid-column: 1/3;
+    display: grid;
+    padding: 2rem;
+    justify-content:center;
+}
+
+.discount-edit-form label{
+    display:block;
+    margin-left: -1rem;
+}
+
+.discount-edit-form .name {
+    grid-row: 1;
+    grid-column: 1;
+    padding: 1rem 5rem;
+}
+
+.discount-edit-form .percentage {
+    grid-row: 1;
+    grid-column: 2;
+    padding: 1rem 5rem;
+}
+
+.discount-edit-form .percentage .input-group{
+    width: 12rem;
+}
+
+.discount-edit-form .startDate {
+    grid-row: 2;
+    grid-column: 1;
+    padding: 1rem 5rem;    
+}
+
+.discount-edit-form .endDate {
+    grid-row: 2;
+    grid-column: 2;
+    padding: 1rem 5rem;
+}
+
+.discount-edit-form .candyInDiscount {
+    grid-row: 3;
+    grid-column: 1;
+    padding: 1rem 5rem;
+}
+
+.discount-edit-form .couponCodes {
+    grid-row: 3;
+    grid-column: 2;
+    padding: 1rem 5rem;
+}
+
+.discount-edit-form .manageCouponCode {
+    grid-row: 4;
+    grid-column: 2;
+    margin-left: 5rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.discount-edit-form .manageCouponCode input {
+    max-width: 17rem;
+}
+
+.discount-edit-form .manageCouponCode .codeButtons{
+    display: flex;
+    justify-content:flex-start;
+}
+
+.discount-edit-form .manageCouponCode .codeButtons button{
+    margin: 1rem 1rem 1rem 0;
+}
+
+.discount-edit-form .btnSubmit{
+    grid-row: 6;
+    grid-column: 1/3;
+    margin: 0 5rem;
+}
+
+@media screen and (min-width: 767px) {
+    .identity-menu{
+        float: right;
+        margin-left: 8rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .identity-menu {
+        margin-left: 8rem !important;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .discount-edit-form .name {
+        grid-row: 1;
+        grid-column: 1;
+        padding: 1rem 5rem;
+    }
+
+    .discount-edit-form .percentage {
+        grid-row: 2;
+        grid-column: 1;
+        padding: 1rem 5rem;
+    }
+
+    .discount-edit-form .startDate {
+        grid-row: 3;
+        grid-column: 1;
+        padding: 1rem 5rem;
+    }
+
+    .discount-edit-form .endDate {
+        grid-row: 4;
+        grid-column: 1;
+        padding: 1rem 5rem;
+    }
+
+    .discount-edit-form .candyInDiscount {
+        grid-row: 5;
+        padding: 1rem 5rem;
+    }
+
+    .discount-edit-form .couponCodes {
+        grid-row: 6;
+        grid-column: 1;
+    }
+
+    .discount-edit-form .manageCouponCode {
+        grid-row: 7;
+        grid-column: 1;
+    }
+
+        .discount-edit-form .manageCouponCode input {
+            max-width: 17rem;
+        }
+
+    .discount-edit-form .btnSubmit {
+        grid-row: 8;
+        grid-column: 1/3;
+        margin: 0 5rem;
+    }
+
+
+
+    .discount-edit-form .submit {
+        grid-row: 6;
+        grid-column: 1/3;
+        margin: 0 5rem;
+    }
+}
+
+/*  Discont AddOrEdit View End*/
+
+.candydetail-thumbnail {
+    max-width: 600px;
+    background-color: white;
+    padding: 2px;
+}
+.row, .row-input{
+    margin-bottom: 1em;
+}
+.form-body{
+    padding-top:2em;
+    padding-bottom:1em;
+}
+
+#selectForDropdown {
+    background: #5c85b3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    width: 150px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    border-color: #2f445c;
+    border-style:solid;
+    float: right;
+    margin-bottom: 5px;
+}
+    #selectForDropdown ul {
+        position: absolute;
+        top: 120%;
+        left: 0;
+        list-style: none;
+        background: #fff;
+        color: #555;
+        width: 100%;
+        border: 1px;
+        border-radius: 10px;
+        border-color: #2f445c;
+        border-style: solid;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+#selectForDropdown ul li{
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
+
+#selectForDropdown ul.open{
+    max-height: 300px;
+}
+
+.image-column{
+    float:left;
+    width: 25%;
+    padding: 10px;
+}
+
+
+.thumbnail {
+    transition: all 0.2s ease;
+}
+
+    .thumbnail:hover {
+        transform: scale(1.03);
+        box-shadow: lightgray 2px 5px 5px 2px;
+    }
+

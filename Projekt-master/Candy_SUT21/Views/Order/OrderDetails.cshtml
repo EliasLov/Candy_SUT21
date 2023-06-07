@@ -1,0 +1,49 @@
+﻿@model Order
+
+<h2>Thank you for your order!</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="col-sm-1">&nbsp;</th>
+            <th class="col-md-2">Selected Amount</th>
+            <th class="col-md-5">Candy</th>
+            <th class="text-right col-md-2">Price</th>
+            <th class="text-right col-md-2">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td></td>
+                <td class="text-center">@item.Amount</td>
+                <td class="text-left">@item.Candy.Name</td>
+                <td class="text-right">@item.Candy.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((item.Amount * item.Candy.Price).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-right">Total</td>
+            <td class="text-right">@Model.OrderTotal.ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" asp-controller="Admin" asp-action="OrderManagement">Order List</a>
+    }
+    else
+    {
+        <a class="btn btn-primary" asp-controller="Order" asp-action="OrderHistory">Back to orders</a>
+    }
+</div>
+
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Your orders";
+}
+<div class="col-md-10 col-md-offset-2">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+<div class="row">
+   <div class="col-md-8 col-md-offset-2">
+       <table  class="table table-hover">
+           <thead>
+               <tr>
+                    <th>Order Id</th>
+                    <th class="text-center">Order Date</th>
+                    <th class="text-center">Order Amount</th>
+               </tr>
+           </thead>
+           <tbody>
+               @foreach (var order in Model)
+               {
+
+                       <tr onclick="OrderDetails(@order.OrderId)" style="cursor: pointer;">
+                           <td>@order.OrderId</td>
+                           <td class="text-center">@order.OrderPlaced</td>
+                           <td class="text-center">@order.OrderTotal.ToString("c")</td>
+                       </tr>
+
+
+               }
+           </tbody>
+       </table>
+   </div>
+</div>
+
+<script>
+    function OrderDetails(orderId) {
+        window.location.href = '@Url.Action("OrderDetails", "Order")' + '?id=' + orderId;
+    }
+</script>

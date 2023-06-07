@@ -1,0 +1,54 @@
+﻿@model Candy
+
+@{
+    var imagePath = @"/Images/thumbnails/" + (Model.ImageThumbnailUrl ?? "noThumbnailDjinn.png");
+}
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        @if (Model.IsOnSale)
+        {
+            <div class="discount-circle">
+                <i class="discount-percent">-@Model.Discount.Percentage%</i>
+            </div>
+            
+        }
+        <div class="candyCard-image">
+            <img src="@imagePath" alt="Image for Candy"/>
+        </div>
+
+        <div class="caption">
+            @if (Model.IsOnSale)
+            {
+                <h3 class="pull-right" style="color: red;">
+                    @Model.GetDiscountPrice().ToString("c")
+                </h3>
+                <h4 class="pull-right" style="text-decoration: line-through">@Model.Price</h4>
+            }
+            else
+            {
+                <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+            }
+            <h3><a asp-controller="Candy" asp-action="Details" asp-route-id="@Model.CandyId">@Model.Name</a></h3>
+            <p style="overflow-y:scroll; padding:2px; height:80px;">@Model.Description</p>
+        </div>
+
+        <div class="addToCart" style="margin-top:5px;">
+            @if (Model.IsInStock == true)
+           {
+                <p class="button">
+                    <a class="btn btn-primary"
+                   asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-candyId="@Model.CandyId">Add To Cart</a>
+                </p>
+            }else{
+                <p class="button" disabled>
+                    <a class="btn btn-primary">Out of stock!</a>
+                </p>
+
+            }
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿<div class="chartWidget">
+    <form id="salesAmountPeriodForm" class="form-inline">
+        <label for="selectsaleAmountPeriod">Select Period</label>
+        <select id="selectsaleAmountPeriod" class="form-control">
+            <option value="days">Last 7 days</option>
+            <option value="weeks">Last 4 weeks</option>
+            <option value="months">Last 6 months</option>
+        </select>
+        <button type="submit" class="btn btn-default">Update</button>
+    </form>
+
+    <div class="chartContainer" id="salesAmountChart">
+
+    </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    $('#salesAmountPeriodForm').submit(function (e) {
+        e.preventDefault();
+
+        var val = $('#selectsaleAmountPeriod').val();
+        drawSalesAmountChart(val);
+    });
+
+      google.charts.setOnLoadCallback(drawSalesAmountChart);
+
+    function drawSalesAmountChart(period="days") {
+        $(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Statistics/SalesAmount?period=' + period,
+                success: function (chartsdata) {
+
+                    var Data = chartsdata.jsonList;
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Day');
+                    data.addColumn('number', 'Sales Amount')
+                    data.addColumn('number', 'Nr of Orders');
+
+                    for (var i = 0; i < Data.length; i++) {
+                        data.addRow([Data[i].label, { v:Data[i].salesAmount, f: Data[i].salesAmount+' kr' }, Data[i].orderCount]);
+                    }
+
+                    var options = {
+                        series: {
+                            0: { axis: 'SalesAmount' }, 
+                            1: { axis: 'NrofOrders' } 
+                        },
+                        axes: {
+                            y: {
+                                SalesAmount: { label: 'Sales Amount' }, // Left y-axis.
+                                NrofOrders: { side: 'right', label: 'Nr of Orders' } // Right y-axis.
+                            }
+                        },
+                        chart: {
+                            title: 'Sales Statistics',
+                        },
+                        hAxis: { title: '  ', titleTextStyle: { color: 'white' } },
+                        backgroundColor: { fill: 'transparent' }
+
+
+
+                    };
+
+                    var productSaleschart = new google.charts.Bar(document.getElementById('salesAmountChart'));
+                    productSaleschart.draw(data, google.charts.Bar.convertOptions(options));
+
+                    $(window).resize(function () {
+                        productSaleschart.draw(data, google.charts.Bar.convertOptions(options));
+                    });
+                },
+                error: function () {
+                    alert("Error loading data!");
+                }
+            })
+        })
+    }
+
+
+
+
+</script>
